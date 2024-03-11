@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button>العودة</ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-family: 'Droid Arabic Kufi', serif;">
+      الرصد و التبليغ
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding">
+
+  <ion-toast
+  [isOpen]="isToastOpen"
+  [message]= "ToastMsg"
+  [duration]="5000">
+  </ion-toast>
+
+
+  <ion-input style="font-weight: bolder;" [(ngModel)]="objetAlerte" label=" موضوع التنبيه "  fill="outline" placeholder="موضوع التنبيه "></ion-input>
+  <ion-input style="font-weight: bolder;" [(ngModel)]="lieu" label="المكان"  fill="outline" placeholder="المكان "></ion-input>
+  <label style="font-weight: bolder;"> شخص أو مجموعة أشخاص</label>
+
+  <ion-segment style="margin-top: 12px;margin-bottom: 12px;" [(ngModel)]="groupePersonne"  >
+    <ion-segment-button value="شخص">
+      <ion-label>شخص</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="مجموعة">
+      <ion-label>مجموعة</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <label style="font-weight: bolder;"> الجنس</label>
+
+  <ion-segment style="margin-top: 12px;"  [(ngModel)]="sexe"  >
+    <ion-segment-button value="ذكر">
+      <ion-label>ذكر</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="أنثى">
+      <ion-label>أنثى</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="مختلط">
+      <ion-label>مختلط</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-item>
+    <ion-select  style="margin-top: 12px;" [(ngModel)]="situationSociale" label="الوضع الإجتماعي" [multiple]="true" >
+      <ion-select-option value="طفل ضحية عنف "> طفل ضحية عنف </ion-select-option>
+      <ion-select-option value="طفل في خطر "> طفل في خطر </ion-select-option>
+      <ion-select-option value="غير مصرح به بسجل الحالة المدنية "> غير مصرح به بسجل الحالة المدنية </ion-select-option>
+      <ion-select-option value="في وضعية الشارع "> في وضعية الشارع </ion-select-option>
+      <ion-select-option value=" في وضعية تسول "> في وضعية تسول </ion-select-option>
+      <ion-select-option value=" في وضعية إدمان "> في وضعية إدمان </ion-select-option>
+      <ion-select-option value=" في وضعية هدر مدرسي "> في وضعية هدر مدرسي </ion-select-option>
+      <ion-select-option value="في نزاع مع القانون "> في نزاع مع القانون </ion-select-option>
+      <ion-select-option value="طفل متخلى عنه "> طفل متخلى عنه </ion-select-option>
+      <ion-select-option value="في وضعية إعاقة "> في وضعية إعاقة </ion-select-option>
+      <ion-select-option value="مهاجر"> مهاجر </ion-select-option>
+      <ion-select-option value="لاجئ"> لاجئ </ion-select-option>
+      <ion-select-option value="مرشح للهجرة">مرشح للهجرة</ion-select-option>
+      <ion-select-option value="وضعية هشاشة قصوى "> وضعية هشاشة قصوى </ion-select-option>
+      <ion-select-option value="ضحية كافة أشكال سوء المعاملة والاستغلال">ضحية كافة أشكال سوء المعاملة والاستغلال</ion-select-option>
+      <ion-select-option value="آخر">آخر</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item style="margin-top: 12px;">
+    <ion-select [(ngModel)]="alerteur" label="مصدر التنبيه" >
+      <ion-select-option value="شخص"> شخص</ion-select-option>
+      <ion-select-option value="جمعية"> جمعية</ion-select-option>
+      <ion-select-option value="الوكالة الوطنية لإنعاش التشغيل والكفاءات">  الوكالة الوطنية لإنعاش التشغيل والكفاءات</ion-select-option>
+      <ion-select-option value="مكتب تنمية التعاون "> مكتب تنمية التعاون </ion-select-option>
+      <ion-select-option value=" وكالة التنمية الاجتماعية "> وكالة التنمية الاجتماعية </ion-select-option>
+      <ion-select-option value=" قطاع الصحة "> قطاع الصحة </ion-select-option>
+      <ion-select-option value=" قطاع الحرف التقليدية "> قطاع الحرف التقليدية </ion-select-option>
+      <ion-select-option value="قطاع الشباب "> قطاع الشباب </ion-select-option>
+      <ion-select-option value="قطاع التربية والرياضة "> قطاع التربية والرياضة </ion-select-option>
+      <ion-select-option value="إقليم/عمالة"> إقليم/عمالة</ion-select-option>
+      <ion-select-option value="المديرية العامة لإدارة السجون وإعادة الإدماج"> المديرية العامة لإدارة السجون وإعادة الإدماج </ion-select-option>
+      <ion-select-option value="الوقاية المدنية "> الوقاية المدنية </ion-select-option>
+      <ion-select-option value=" السلطة المحلية" >السلطة المحلية  </ion-select-option>
+      <ion-select-option value="الأمن الوطني"> الأمن الوطني</ion-select-option>
+      <ion-select-option value="قطاع العدل">قطاع العدل</ion-select-option>
+      <ion-select-option value=" الدرك الملكي"> الدرك الملكي</ion-select-option>
+      <ion-select-option value="آخر">آخر</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-input style="font-weight: bolder;" [(ngModel)]="degre" label=" درجة الخطورة "  fill="outline" placeholder="درجة الخطورة "></ion-input>
+  <ion-input style="font-weight: bolder;" [(ngModel)]="descriptionObservation" label=" الوصف/الملاحظة"  fill="outline" placeholder="الوصف/الملاحظة "></ion-input>
+  <br>
+  <ion-button (click)="SendAlerte()"  expand="block"><ion-icon name="paper-plane-sharp"></ion-icon></ion-button>
+</ion-content>
